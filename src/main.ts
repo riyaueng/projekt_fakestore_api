@@ -54,19 +54,20 @@ function printProducts(products: TProducts[]): void {
   products.forEach((product: TProducts) => {
     // * ------- Produkt-Boxen ausgeben --------
 
-    productlist.innerHTML = `<div class="product_box">
+    productlist.innerHTML = `
+      <div class="product_box">
       <div class="div_product_img">
       <img src="${product.image}" alt="${product.image}">
       </div>
       <h2>${product.title}</h2>
-      <div>
+      <div class="wrapper_price_cart">
       <p>${product.price} €</p>
       <button class="add_cart_btn">Add to cart</button>
-      </div></div>`
+      </div>
+      </div>`
     outputProducts.innerHTML += productlist.innerHTML
   })
 }
-
 printProducts(listedProducts)
 
 // # ------ Kategorien aus der API auflisten lassen -------
@@ -162,9 +163,11 @@ sortElement.addEventListener("change", () => {
   const selectValue = sortElement.value.trim()
   const copyListedProducts = [...listedProducts]
   if (selectValue === "priceup") {
-    copyListedProducts.sort((productA, productB) => productB.price - productA.price)
+    copyListedProducts.sort((productA: TProducts, productB: TProducts) => productB.price - productA.price)
   } else if (selectValue === "pricedown") {
-    copyListedProducts.sort((productA, productB) => productA.price - productB.price)
+    copyListedProducts.sort((productA: TProducts, productB: TProducts) => productA.price - productB.price)
+  } else if (selectValue === "rating") {
+    copyListedProducts.sort((productA: TProducts, productB: TProducts) => productB.rating.rate - productA.rating.rate)
   }
   printProducts(copyListedProducts)
 })
@@ -173,8 +176,15 @@ sortElement.addEventListener("change", () => {
 
 const searchInput = document.querySelector("#searchfield") as HTMLInputElement
 
-// function searchProducts(input: string) {
-//   const inputLowerCase = input.toLowerCase()
-//   const copyListedProducts = [...listedProducts]
-//   return copyListedProducts.filter(())
-// }
+function searchProducts(input: string) {
+  const inputLowerCase = input.toLowerCase()
+  const copyListedProducts = [...listedProducts]
+  return copyListedProducts.filter((product: TProducts) => product.title.toLowerCase().includes(inputLowerCase))
+}
+
+searchInput.addEventListener("keyup", () => {
+  const inputValue = searchInput.value
+  const searchResult = searchProducts(inputValue)
+  printProducts(searchResult)
+  console.log(searchResult)
+})

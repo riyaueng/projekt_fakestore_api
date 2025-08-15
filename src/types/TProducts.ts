@@ -1,3 +1,5 @@
+import type { TRating } from "./TRating"
+
 export type TProducts = {
   id: number
   title: string
@@ -5,5 +7,5 @@ export type TProducts = {
   description: string
   category: string
   image: string
-  rating: string[]
+  rating: TRating
 }
