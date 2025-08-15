@@ -1,13 +1,35 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>SuperFakeStore</title>
   </head>
   <body>
-    <div id="app"></div>
+    <header>
+      <h1>SuperFakeStore</h1>
+      <section class="section_nav">
+        <div class="div_searchfields">
+          <input type="text" id="searchfield" placeholder="Search by title" />
+          <select name="sortfield" id="sortfield" placeholder="Sort by">
+            <option value="" disabled selected>Sorted by</option>
+            <option value="priceup">Low to high</option>
+            <option value="pricdown">High to low</option>
+            <option value="rating">Rating</option>
+          </select>
+        </div>
+
+        <div class="div_filter_categories">
+          <p>Filter by Categories:</p>
+          <div class="output_categories"></div>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section class="section_products_overview"></section>
+    </main>
+    <footer></footer>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
