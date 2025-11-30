@@ -2,7 +2,7 @@
 
 Eine moderne Shop-Übersicht, die Produkte dynamisch aus einer externen API lädt und mit Filter-, Sortier- und Suchfunktionen anzeigt.
 
-<img width="1848" height="844" alt="Bildschirmfoto 2025-11-22 um 17 32 39" src="https://github.com/user-attachments/assets/857fcbb6-77e8-4518-b270-4eaf90f29194" />
+<img width="1848" height="844" alt="SuperFakeStore" src="https://github.com/user-attachments/assets/857fcbb6-77e8-4518-b270-4eaf90f29194" />
 
 ---
 
